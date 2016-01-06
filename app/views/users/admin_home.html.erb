@@ -1,0 +1,24 @@
+<%= provide(:title, "Welcome") %>
+<h4>My profile</h4>
+<%= link_to 'View my profile', user_path(session[:current_user_id]) %><br/>
+<%= link_to 'Edit my profile', edit_user_path(session[:current_user_id]) %><br/>
+<br/>
+<h4>Manage Admins</h4>
+<%= link_to 'Add new Admin',   new_user_path %><br/>
+<%= link_to 'View list/See details/Delete admins', admin_index_path%><br/>
+<br/>
+<h4>Manage Library Books</h4>
+<%= link_to 'Add new book', new_book_path %><br/>
+<%= link_to 'View list of books', books_path %><br/>
+<%= link_to 'View book details', books_path %><br/>
+<%= link_to 'Edit book details', books_path %><br/>
+<%= link_to 'View Checkout History for a book', books_path %><br/>
+<%= link_to 'Checkout/Return books', books_path %>
+<br/>
+<h4>Library Members</h4>
+<%= link_to 'View Checkout history for a user', users_path %><br/>
+<%= link_to 'Delete a book', books_path %><br/>
+<%= link_to 'List all library members', users_path %><br/>
+<%= link_to 'Delete a member', users_path %><br/>
+
+
