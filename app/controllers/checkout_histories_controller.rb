@@ -77,6 +77,6 @@ class CheckoutHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checkout_history_params
-      params.require(:checkout_history).permit(:email, :ISBN, :checkout_timestamp, :return_timestamp)
+      params.permit(:email, :isbn, :checkout_timestamp, :return_timestamp)
     end
 end

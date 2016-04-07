@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-  if !signed_in?
+  if !signed_in? && !books_path
     flash[:error] = "You must be logged in to access this section"
     redirect_to login_path # halts request cycle
    end

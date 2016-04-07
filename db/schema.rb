@@ -23,18 +23,23 @@ ActiveRecord::Schema.define(version: 20150919175706) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string   "ISBN"
+    t.integer  "isbn"
     t.string   "title"
-    t.text     "description"
     t.string   "author"
-    t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "genre"
+    t.string   "shelving_code"
+    t.string   "publisher"
+    t.string   "language"
+    t.datetime "due_date"
+    t.boolean  "available"
+    t.boolean  "late"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "checkout_histories", force: :cascade do |t|
     t.string   "email"
-    t.string   "ISBN"
+    t.string   "isbn"
     t.string   "checkout_timestamp"
     t.string   "return_timestamp"
     t.datetime "created_at",         null: false

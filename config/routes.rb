@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root 'books#index'
   get    'admin_home' => 'users#admin_home'
   get    'user_home'  => 'users#user_home'
   get    'admin_index' => 'users#admin_index'
@@ -7,10 +7,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   get    'logout'  => 'sessions#destroy'
 
-  get 'books/search/' => 'books#search'
-  post 'books/search_display/' => 'books#search_display'
-
   get 'books/history/:id' => 'books#history'
+  get '/books/:isbn', to: "books#show"
 
   get 'users/history/:id' => 'users#history'
   get 'users/delete_admin/:id' => 'users#delete_admin'
@@ -24,16 +22,8 @@ Rails.application.routes.draw do
   get 'books/history/:id' => 'books#history'
   get 'users/history/:id' => 'users#history'
 
-  get 'books/search/' => 'books#search'
-  post 'books/search_display/' => 'books#search_display'
-
-
 
   post '/books/:id' => 'books#checkout'
-
-
-
-
 
 
   #root 'application#index'

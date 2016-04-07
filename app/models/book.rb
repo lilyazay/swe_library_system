@@ -1,10 +1,23 @@
 class Book < ActiveRecord::Base
  #attr_accessor :ISBN, :title, :description, :author, :status
 
-  validates :ISBN, presence: true, length: {is: 13}
+  validates :isbn, presence: true
   validates :title, presence: true, length: {within: 2..100}
-  validates :description, presence: true, length: {within: 2..500}
+  validates :publisher, presence: true
   validates :author, presence: true, length: {within: 2..200}
-  validates :status, presence: true
-  validates_uniqueness_of :ISBN
+  validates :genre, presence: true
+  validates :shelving_code, presence: true
+  #validates :due_date
+  validates :available, inclusion: { in: [true, false] }
+  validates :late, inclusion: { in: [true, false] }
+
+  validates_uniqueness_of :isbn
+
+  def self.search(search)
+    if search
+      self.where('title || author || isbn LIKE ?', "%#{search}%")
+    else
+      self.all
+    end
+  end
 end

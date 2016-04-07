@@ -14,15 +14,15 @@
     </tr>
   </thead>
 
-  <%@user=User.find_by_id(session[:current_user_id])%>
+  <% @user=User.find_by_id(session[:current_user_id]) %>
   <tbody>
     <% @checkout_histories.each do |checkout_history| %>
       <tr>
 
         <%if(checkout_history.email==@user.email || @user.user_type=='A' || @user.user_type=='P')%>
         <td><%= checkout_history.email %></td>
-        <td><%= checkout_history.ISBN %></td>
-            <%@book=Book.find_by_ISBN(checkout_history.ISBN)%>
+        <td><%= checkout_history.isbn %></td>
+            <%@book=Book.find_by_isbn(checkout_history.isbn)%>
             <td><%= @book.title %></td>
         <td><%= checkout_history.checkout_timestamp %></td>
         <td><%= checkout_history.return_timestamp %></td>

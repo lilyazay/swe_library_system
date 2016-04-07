@@ -2,7 +2,7 @@
 
 <p>
   <strong>Isbn:</strong>
-  <%= @book.ISBN %>
+  <%= @book.isbn %>
 </p>
 
 <p>
@@ -11,18 +11,38 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
   <strong>Author:</strong>
   <%= @book.author %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @book.status %>
+  <strong>Genre:</strong>
+  <%= @book.genre %>
+</p>
+
+<p>
+  <strong>Shelving code:</strong>
+  <%= @book.shelving_code %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @book.publisher %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @book.language %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @book.due_date %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @book.available %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %>

@@ -1,15 +1,45 @@
+<link rel="stylesheet" href="coverflow.css"/>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Books</h1>
+<div class="text-center">
+  <h1>Browse Books</h1>
+  <p>To checkout or check-in books, please <%= link_to "login", login_path %>.</p>
+</div>
+<hr />
 
-<table>
+<div class="row">
+  <%= form_tag books_path, :method => 'get', class: 'input-group'  do %>
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search by title, author, or ISBN...' %>
+    <span class="input-group-btn">
+      <%= submit_tag "search", class: "btn btn-primary" %>
+    </span>
+  <% end %>
+</div>
+<hr />
+
+<div id="player"></div>
+<script src="coverflow.js"></script>
+<script>
+  coverflow('player').setup({
+    flash: 'coverflow.swf',
+    playlist: 'playlist.json',
+    width: 460,
+    height: 240
+  });
+</script>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Isbn</th>
       <th>Title</th>
-      <th>Description</th>
       <th>Author</th>
-      <th>Status</th>
+      <th>Genre</th>
+      <th>Shelving code</th>
+      <th>Publisher</th>
+      <th>Language</th>
+      <th>Available</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,49 +47,36 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td><%= book.ISBN %></td>
+        <td><%= book.isbn %></td>
         <td><%= book.title %></td>
-        <td><%= book.description %></td>
         <td><%= book.author %></td>
-        <td><%= book.status %></td>
-        <td><%= link_to 'Show', book %></td>
-        <%@user=User.find_by_id(session[:current_user_id])%>
-        <%if(@user.user_type=='A' || @user.user_type=='P')%>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= book.genre %></td>
+        <td><%= book.shelving_code %></td>
+        <td><%= book.publisher %></td>
+        <td><%= book.language %></td>
+        <td><%= book.available %></td>
+        <td><%= link_to 'View', book_path(book.isbn), :class => 'btn btn-mini' %></td>
 
-        <%end%>
-
-        <% if book.status == 'Available' %>
-        <td>  <%= link_to 'Checkout', book, method: :post, data: { confirm: 'Are you sure?' } %></td>
+        <% @user=User.find_by_id(session[:current_user_id]) %>
+        <% if book.available == true && %>
+        <td>  <%= link_to 'Checkout', book, method: :post, data: { confirm: 'Are you sure you would like to checkout this book?' } %></td>
             <%end%>
-        <% if book.status == 'Checked out'%>
-            <%@checkout_history=CheckoutHistory.find_by(ISBN: book.ISBN,return_timestamp: '9999-12-31T00:00:00+00:00')%>
+        <% if book.available == false %>
+            <% @checkout_history = CheckoutHistory.find_by(isbn: book.isbn,return_timestamp: '9999-12-31T00:00:00+00:00')%>
              
-            <%if !@checkout_history.nil?  %>
-                    <%if (@checkout_history.email==@user.email || @user.user_type=='P' || @user.user_type=='A')%>
+                    <%if (@checkout_history.email == @user.email || @user.user_type=='P' || @user.user_type=='A') %>
 
-            <td>  <%= link_to 'Return', book, method: :post, data: { confirm: 'Are you sure?' } %></td>
-
-
-            <%end%>
+            <td>  <%= link_to 'Check-in', book, method: :post, data: { confirm: 'Are you sure you would like to check-in this book?' } %></td>
                
             <%end%>
             <%end%>
 
-<%if(@user.user_type=='A' || @user.user_type=='P')%>
-        <td><%= link_to "History", controller: "books", action: "history", id: book.id%></td>
-<%end%>  
-    </tr>
+
     <% end %>
   </tbody>
 </table>
 
-<br>
+<div class="text-center", style="font-size:200%;">
+<%= link_to 'View By Categories', new_book_path %>
+</div>
 
-<%@user=User.find_by_id(session[:current_user_id])%>
-<%if(@user.user_type=='A' || @user.user_type=='P')%>
-<%= link_to 'Back', admin_home_path %>
-<%elsif (@user.user_type=='U')%>
-<%= link_to 'Back', user_home_path %>
-<%end%>

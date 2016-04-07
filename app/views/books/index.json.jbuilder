@@ -1,4 +1,4 @@
 json.array!(@books) do |book|
-  json.extract! book, :id, :ISBN, :title, :description, :author, :status
+  json.extract! book, :id, :isbn, :title, :author, :available
   json.url book_url(book, format: :json)
 end
