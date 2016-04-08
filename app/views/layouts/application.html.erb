@@ -15,9 +15,9 @@
 
   <% if !current_page?(login_path) && !session[:current_student_id].nil? %>
       <% if ['A','P'].include?(Student.find_by_id(session[:current_student_id]).student_type) %>
-          <%= link_to 'Home', admin_home_path %>
+          <%= link_to 'Manage Account', admin_home_path %>
       <% else %>
-          <%= link_to 'Home', student_home_path %>
+          <%= link_to 'My Account', student_home_path %>
       <%end%>
       <%= link_to 'Signout', logout_path %>
   <%end%>

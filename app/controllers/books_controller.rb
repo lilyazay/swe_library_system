@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :check_student, only: [:checkout]
 
   # GET /books
   # GET /books.json
@@ -95,7 +96,6 @@ class BooksController < ApplicationController
 
   # CHECKOUT books
   def checkout
-    if signed_in?
       @student = Student.find_by_id(session[:current_student_id])
 
       @book = Book.find_by_id(params[:id])
@@ -141,11 +141,6 @@ class BooksController < ApplicationController
             format.json { head :no_content }
           end
         end
-        end
-      end
-              else
-        respond_to do |format|
-          format.html{redirect_to login_path, notice: 'To checkout or check-in a book, please login.'}
       end
     end
 
@@ -160,9 +155,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -171,6 +163,16 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:ISBN, :title, :description, :author, :status)
+      params.permit(:isbn, :title, :description, :author, :status)
     end
-end
+
+
+    def check_student
+      if !signed_in?
+      respond_to do |format|
+        format.html{redirect_to root_url, notice: "Please login to checkout or check-in books." }
+        end
+      end
+    end
+  end
+
