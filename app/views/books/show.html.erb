@@ -1,48 +1,61 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-20 col-sm-11 col-md-11">
+      <div class="well well-sm">
+          <div class="row">
+              <div class="col-sm-6 col-md-4">
+                  <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8 text-center">
+                      <h4>
+                        <p>
+                          <strong>Title:</strong>
+                          <%= @book.title %>
+                        </p>
+                      </h4>
+                        <p>
+                        <strong>Isbn:</strong>
+                           <%= @book.isbn %>
+                        </p>
+                        <p>
+                        <p>
+                          <strong>Author:</strong>
+                          <%= @book.author %>
+                        </p>
 
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
+                        <p>
+                          <strong>Genre:</strong>
+                          <%= @book.genre %>
+                        </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+                        <p>
+                          <strong>Shelving code:</strong>
+                          <%= @book.shelving_code %>
+                        </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
+                        <p>
+                          <strong>Publisher:</strong>
+                          <%= @book.publisher %>
+                        </p>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @book.genre %>
-</p>
+                        <p>
+                          <strong>Language:</strong>
+                          <%= @book.language %>
+                        </p>
 
-<p>
-  <strong>Shelving code:</strong>
-  <%= @book.shelving_code %>
-</p>
+                        <p>
+                          <strong>Available:</strong>
+                          <%= @book.available %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<p>
-  <strong>Publisher:</strong>
-  <%= @book.publisher %>
-</p>
+<div class='text-center'>
+<%= link_to 'Back', root_url, {:style=>'color:#FFFFFF;', :class => "btn btn-primary"} %>
+</div>
 
-<p>
-  <strong>Language:</strong>
-  <%= @book.language %>
-</p>
-
-<p>
-  <strong>Due date:</strong>
-  <%= @book.due_date %>
-</p>
-
-<p>
-  <strong>Available:</strong>
-  <%= @book.available %>
-</p>
-
-<%= link_to 'Back', root_url %>

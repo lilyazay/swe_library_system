@@ -19,7 +19,7 @@ class BooksController < ApplicationController
       @book = Book.new(:available=>true)
     elsif check_if_student
       respond_to do |format|
-        format.html{redirect_to student_home_path, notice: 'students cannot add new books.'}
+        format.html{redirect_to student_home_path, notice: 'Students cannot add new books.'}
       end
     else
       respond_to do |format|
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
       @books = Book.where(id: params[:id])
     elsif check_if_student
       respond_to do |format|
-        format.html{redirect_to student_home_path, notice: 'students cannot add new books.'}
+        format.html{redirect_to student_home_path, notice: 'Students cannot add new books.'}
       end
     else
       respond_to do |format|
