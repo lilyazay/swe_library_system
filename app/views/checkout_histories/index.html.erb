@@ -14,12 +14,12 @@
     </tr>
   </thead>
 
-  <% @user=User.find_by_id(session[:current_user_id]) %>
+  <% @student=Student.find_by_id(session[:current_student_id]) %>
   <tbody>
     <% @checkout_histories.each do |checkout_history| %>
       <tr>
 
-        <%if(checkout_history.email==@user.email || @user.user_type=='A' || @user.user_type=='P')%>
+        <%if(checkout_history.email==@student.email || @student.student_type=='A' || @student.student_type=='P')%>
         <td><%= checkout_history.email %></td>
         <td><%= checkout_history.isbn %></td>
             <%@book=Book.find_by_isbn(checkout_history.isbn)%>
@@ -29,7 +29,7 @@
         <td><%= link_to 'Show', checkout_history %></td>
         <%end%>
 
-        <%if(@user.user_type=='A' || @user.user_type=='P')%>
+        <%if(@student.student_type=='A' || @student.student_type=='P')%>
             <td><%= link_to 'Edit', edit_checkout_history_path(checkout_history) %></td>
             <td><%= link_to 'Destroy', checkout_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
@@ -42,7 +42,7 @@
 
 <br>
 
-<%if(@user.user_type=='A' || @user.user_type=='P')%>
+<%if(@student.student_type=='A' || @student.student_type=='P')%>
 <%= link_to 'New Checkout history', new_checkout_history_path %>
 <%end%>
 

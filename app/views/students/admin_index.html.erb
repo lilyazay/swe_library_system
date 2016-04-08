@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<h1>Listing Students</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Name</th>
+    <th>student type</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @students.each do |student| %>
+
+      <tr>
+        <td><%= student.email %></td>
+        <td><%= student.name %></td>
+        <td><%= student.student_type %></td>
+        <td><%= link_to 'Show', student %></td>
+        <% if student.student_type == "A"%>
+          <%if session[:current_student_id]!=student.id%>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy',controller: "students", action: "delete_admin",id: student.id, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+            <%end%>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', admin_home_path %>
+

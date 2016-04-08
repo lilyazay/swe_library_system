@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20150919175706) do
     t.datetime "updated_at",         null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "students", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
     t.string   "password"
-    t.string   "user_type"
+    t.string   "student_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"

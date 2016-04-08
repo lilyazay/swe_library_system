@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'books#index'
-  get    'admin_home' => 'users#admin_home'
-  get    'user_home'  => 'users#user_home'
-  get    'admin_index' => 'users#admin_index'
+  get    'admin_home' => 'students#admin_home'
+  get    'student_home'  => 'students#student_home'
+  get    'admin_index' => 'students#admin_index'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   get    'logout'  => 'sessions#destroy'
@@ -10,17 +10,17 @@ Rails.application.routes.draw do
   get 'books/history/:id' => 'books#history'
   get '/books/:isbn', to: "books#show"
 
-  get 'users/history/:id' => 'users#history'
-  get 'users/delete_admin/:id' => 'users#delete_admin'
+  get 'students/history/:id' => 'students#history'
+  get 'students/delete_admin/:id' => 'students#delete_admin'
 
 
   resources :checkout_histories
-  resources :users
-  get 'users/delete_admin/:id' => 'users#delete_admin'
+  resources :students
+  get 'students/delete_admin/:id' => 'students#delete_admin'
 
   resources :books
   get 'books/history/:id' => 'books#history'
-  get 'users/history/:id' => 'users#history'
+  get 'students/history/:id' => 'students#history'
 
 
   post '/books/:id' => 'books#checkout'

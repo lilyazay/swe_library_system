@@ -1,10 +1,10 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |message| %>
+      <% @student.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -29,12 +29,12 @@
     </div>
 <br>
 <br>
-<td>Enter A for admin and U for user</td>
+<td>Enter A for admin and U for student</td>
 <br>
 <br>
   <div class="field">
-    <%= f.label :user_type %><br>
-    <%= f.text_field :user_type %>
+    <%= f.label :student_type %><br>
+    <%= f.text_field :student_type %>
   </div>
   <div class="actions">
     <%= f.submit %>

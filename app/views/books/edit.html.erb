@@ -3,9 +3,9 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @book %> |
-<%@user=User.find_by_id(session[:current_user_id])%>
-<%if(@user.user_type=='A' || @user.user_type=='P')%>
+<% @student = Student.find_by_id(session[:current_student_id]) %>
+<% if(@student.student_type == 'A' || @student.student_type=='P') %>
     <%= link_to 'Back', admin_home_path %>
-<%elsif (@user.user_type=='U')%>
-    <%= link_to 'Back', user_home_path %>
+<%elsif (@student.student_type=='U')%>
+    <%= link_to 'Back', student_home_path %>
 <%end%>

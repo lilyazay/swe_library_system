@@ -16,9 +16,9 @@ class BooksController < ApplicationController
   def new
     if check_if_admin
       @book = Book.new(:available=>true)
-    elsif check_if_user
+    elsif check_if_student
       respond_to do |format|
-        format.html{redirect_to user_home_path, notice: 'Users cannot add new books.'}
+        format.html{redirect_to student_home_path, notice: 'students cannot add new books.'}
       end
     else
       respond_to do |format|
@@ -31,9 +31,9 @@ class BooksController < ApplicationController
   def edit
     if check_if_admin
       @books = Book.where(id: params[:id])
-    elsif check_if_user
+    elsif check_if_student
       respond_to do |format|
-        format.html{redirect_to user_home_path, notice: 'Users cannot add new books.'}
+        format.html{redirect_to student_home_path, notice: 'students cannot add new books.'}
       end
     else
       respond_to do |format|
@@ -88,7 +88,7 @@ class BooksController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to user_home_path, notice: 'Only logged in admins can delete books' }
+        format.html { redirect_to student_home_path, notice: 'Only logged in admins can delete books' }
       end
     end
   end
@@ -96,7 +96,7 @@ class BooksController < ApplicationController
   # CHECKOUT books
   def checkout
     if signed_in?
-      @user = User.find_by_id(session[:current_user_id])
+      @student = Student.find_by_id(session[:current_student_id])
 
       @book = Book.find_by_id(params[:id])
       available = @book.available
@@ -105,7 +105,7 @@ class BooksController < ApplicationController
        @book.available = false
 
 
-        if (@user.user_type == 'A' || @user.user_type == 'P')
+        if (@student.student_type == 'A' || @student.student_type == 'P')
 
           @checkout_history = CheckoutHistory.new(:isbn => @book.isbn, :checkout_timestamp => DateTime.now.utc, :return_timestamp => DateTime.new(9999,12,31).utc)
           @book.save
@@ -116,11 +116,11 @@ class BooksController < ApplicationController
               format.json { render json: @book }
             end
         else
-          @checkout_history = CheckoutHistory.new(:email => @user.email, :isbn => @book.isbn, :checkout_timestamp => DateTime.now.utc, :return_timestamp => DateTime.new(9999,12,31).utc)
+          @checkout_history = CheckoutHistory.new(:email => @student.email, :isbn => @book.isbn, :checkout_timestamp => DateTime.now.utc, :return_timestamp => DateTime.new(9999,12,31).utc)
           @book.save
           @checkout_history.save
           respond_to do |format|
-           format.html { redirect_to user_home_path, notice: 'Book was successfully checked out.' }
+           format.html { redirect_to student_home_path, notice: 'Book was successfully checked out.' }
            format.json { head :no_content }
           end
         end
@@ -137,7 +137,7 @@ class BooksController < ApplicationController
         end
         else
           respond_to do |format|
-            format.html { redirect_to user_home_path, notice: 'Book was successfully returned.' }
+            format.html { redirect_to student_home_path, notice: 'Book was successfully returned.' }
             format.json { head :no_content }
           end
         end

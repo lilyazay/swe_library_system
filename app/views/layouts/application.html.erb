@@ -13,11 +13,11 @@
 
 <div class="container">
 
-  <% if !current_page?(login_path) && !session[:current_user_id].nil? %>
-      <% if ['A','P'].include?(User.find_by_id(session[:current_user_id]).user_type) %>
+  <% if !current_page?(login_path) && !session[:current_student_id].nil? %>
+      <% if ['A','P'].include?(Student.find_by_id(session[:current_student_id]).student_type) %>
           <%= link_to 'Home', admin_home_path %>
       <% else %>
-          <%= link_to 'Home', user_home_path %>
+          <%= link_to 'Home', student_home_path %>
       <%end%>
       <%= link_to 'Signout', logout_path %>
   <%end%>

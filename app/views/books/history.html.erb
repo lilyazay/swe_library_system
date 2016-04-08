@@ -19,7 +19,7 @@
       <% @checkout_histories.each do |checkout_history| %>
 
 
-        <%if checkout_history.isbn == @book.isbn%>
+        <% if checkout_history.isbn == @book.isbn %>
           <tr>
             <td><%= checkout_history.email %></td>
             <td><%= checkout_history.isbn %></td>

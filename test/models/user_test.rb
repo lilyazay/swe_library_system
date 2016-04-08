@@ -6,13 +6,13 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def set_user
-    @user= User.new(name: 'Rohit sharma', email: 'rohitsharma@gmail.com' , password: "rohitpass", user_type: 'U' , password_confirmation: "rohitpass")
+    @user= Student.new(name: 'Rohit sharma', email: 'rohitsharma@gmail.com' , password: "rohitpass", user_type: 'U' , password_confirmation: "rohitpass")
   end
 
 
   test "no type except UPA" do
     set_user
-    assert_match /[UPA]/ , @user.user_type , "User Type should be U, P or A"
+    assert_match /[UPA]/ , @user.user_type , "Student Type should be U, P or A"
   end
 
   test "length of user name" do
@@ -33,7 +33,7 @@ class UserTest < ActiveSupport::TestCase
   test "unique email" do
     set_user
     @user.save
-    assert User.where(:email => @user.email).count == 1
+    assert Student.where(:email => @user.email).count == 1
   end
 
   test "password length" do

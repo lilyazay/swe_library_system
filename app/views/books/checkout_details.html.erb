@@ -26,14 +26,14 @@
 </p>
 
 <p>
-  <strong>Email ID of User</strong>
+  <strong>Email ID of Student</strong>
 </p>
 
 <%= form_for(@checkout_history) do |f|%>
     <div class="field">
       <%= f.label :email %><br>
-      <% users_array = User.all.map { |user| [user.email] } %>
-      <%= f.select(:email,options_for_select(users_array)) %><br>
+      <% students_array = Student.all.map { |student| [student.email] } %>
+      <%= f.select(:email,options_for_select(students_array)) %><br>
 
     </div>
 

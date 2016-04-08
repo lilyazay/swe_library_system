@@ -3,20 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  # Procured help from http://stackoverflow.com/questions/8500350/how-to-allow-access-only-to-logged-in-users-restricting-direct-entry-of-url
+  # Procured help from http://stackoverflow.com/questions/8500350/how-to-allow-access-only-to-logged-in-students-restricting-direct-entry-of-url
   # and
   # http://guides.rubyonrails.org/v2.3.11/action_controller_overview.html
   helper_method :current_user, :signed_in?
   before_action :require_login
 
   private
-  def current_user
-    @_current_user ||= session[:current_user_id] &&
-        User.find_by(id: session[:current_user_id])
+  def current_student
+    @_current_student ||= session[:current_student_id] &&
+        Student.find_by(id: session[:current_student_id])
   end
 
   def signed_in?
-    current_user != nil
+    current_student != nil
   end
 
   def require_login
@@ -26,14 +26,14 @@ class ApplicationController < ActionController::Base
    end
   end
 
-  def check_if_user
-    return true if User.find_by_id(session[:current_user_id]).user_type == 'U'
+  def check_if_student
+    return true if Student.find_by_id(session[:current_student_id]).student_type == 'U'
   end
 
   def check_if_admin
-    return true if ['A','P'].include? User.find_by_id(session[:current_user_id]).user_type
+    return true if ['A','P'].include? Student.find_by_id(session[:current_student_id]).student_type
   end
   def check_if_pre_configured_admin
-    return true if User.find_by_id(session[:current_user_id]).user_type == 'P'
+    return true if Student.find_by_id(session[:current_student_id]).student_type == 'P'
   end
 end

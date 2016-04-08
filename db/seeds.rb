@@ -5,13 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(:name=>"Lily Zay", :email=>"lilya@gmail.com", :password=>"lilya", :user_type=>"P")
+Student.create!(:name=>"Lily Zay", :email=>"lilya@gmail.com", :password=>"lilya", :student_type=>"P")
 
-User.create!(:name=>"Connor Wilson", :email=>"connor@gmail.com", :password=>"connor", :user_type=>"A")
+Student.create!(:name=>"Connor Wilson", :email=>"connor@gmail.com", :password=>"connor", :student_type=>"A")
 
-User.create!(:name=>"Brendan Woods", :email=>"brendan@gmail.com", :password=>"brendan", :user_type=>"U")
+Student.create!(:name=>"Brendan Woods", :email=>"brendan@gmail.com", :password=>"brendan", :student_type=>"U")
 
-User.create!(:name=>"Joseph Wilkerson", :email=>"joseph@gmail.com", :password=>"joseph", :user_type=>"U")
+Student.create!(:name=>"Joseph Wilkerson", :email=>"joseph@gmail.com", :password=>"joseph", :student_type=>"U")
 
 
 Book.find_or_create_by!(isbn: '1451635621') do |c|

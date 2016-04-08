@@ -26,7 +26,7 @@ class UsersControllerTest < ActionController::TestCase
     @controller = old_controller
     get "admin_home"
     assert_response :success
-    assert_not_nil assigns(:users)
+    assert_not_nil assigns(:students)
   end
 
   test "should not get admin home" do
@@ -64,7 +64,7 @@ class UsersControllerTest < ActionController::TestCase
   # assert_template 'sessions/new'
   # post(:create, session: { email: @admin.email, password: "ishantpass" })
   # @controller = old_controller
-  #  assert_no_difference('User.count') do
+  #  assert_no_difference('Student.count') do
   #    post :create, user: @user
   # end
   #end
@@ -105,7 +105,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_template 'sessions/new'
     post(:create, session: { email: @admin.email, password: "ishantpass" })
     @controller = old_controller
-    assert_no_difference('User.count', -1) do
+    assert_no_difference('Student.count', -1) do
       delete :destroy, id: @user.id
     end
 
