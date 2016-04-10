@@ -46,15 +46,6 @@ ActiveRecord::Schema.define(version: 20150919175706) do
     t.datetime "updated_at",         null: false
   end
 
-  create_table "library_members", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "encrypted_password"
-    t.string   "salt"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
   create_table "students", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
