@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="row">
+  <div class="contain clearfix pad4y col-sm-8 col-sm-offset-2">
+  	<h1>My Profile</h1>
+<div class="col">
 <p>
   <strong>Email:</strong>
   <%= @student.email %>
@@ -22,4 +25,7 @@
 <%if @student.student_type=='U' %>
 <%= link_to 'Back', student_home_path%>
 <%end%>
+</div>
+</div>
+</div>
 
