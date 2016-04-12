@@ -13,6 +13,9 @@ class Book < ActiveRecord::Base
 
   validates_uniqueness_of :isbn
 
+  has_one :checkout_histories
+  has_one :students, through: :checkout_histories
+
   def self.search(search)
     if search
       self.where('title || author || isbn LIKE ?', "%#{search}%")

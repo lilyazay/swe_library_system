@@ -1,1 +1,1 @@
-json.extract! @checkout_history, :id, :email, :ISBN, :checkout_timestamp, :return_timestamp, :created_at, :updated_at
+json.extract! @checkout_history, :id, :email, :isbn, :checkout_timestamp, :due_date, :created_at, :updated_at

@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20150919175706) do
     t.string   "shelving_code"
     t.string   "publisher"
     t.string   "language"
-    t.datetime "due_date"
     t.boolean  "available"
     t.boolean  "late"
     t.datetime "created_at",    null: false
@@ -41,7 +40,9 @@ ActiveRecord::Schema.define(version: 20150919175706) do
     t.string   "email"
     t.string   "isbn"
     t.string   "checkout_timestamp"
-    t.string   "return_timestamp"
+    t.datetime "due_date"
+    t.datetime "returned_date"
+    t.boolean  "late"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

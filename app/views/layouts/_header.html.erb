@@ -4,8 +4,16 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", root_url %></li>
-            <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Login", login_path %></li>
+            <% if !current_page?(login_path) && !session[:current_student_id].nil? %>
+              <% if ['A','P'].include?(Student.find_by_id(session[:current_student_id]).student_type) %>
+                <li><%= link_to 'View Account', admin_home_path %></li>
+                  <% else %>
+                    <li><%= link_to 'My Account', student_home_path %></li>
+                    <%end%>
+                <li><%= link_to 'Signout', logout_path %></li>
+                <% else %>
+                <li><%= link_to "Login", login_path %></li>
+            <%end%>
           </ul>
         </nav>
       </div>
