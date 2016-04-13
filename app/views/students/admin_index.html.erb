@@ -20,7 +20,7 @@
         <td><%= student.student_type %></td>
         <td><%= link_to 'Show', student %></td>
         <% if student.student_type == "A"%>
-          <%if session[:current_student_id]!=student.id%>
+          <% if session[:current_student_id]!=student.id %>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy',controller: "students", action: "delete_admin",id: student.id, data: { confirm: 'Are you sure?' } %></td>
         <%end%>

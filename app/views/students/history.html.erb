@@ -15,21 +15,17 @@
 
   <tbody>
   <%if @checkout_histories = CheckoutHistory.all%>
-
-      <% @checkout_histories.each do |checkout_history| %>
-
-
-          <%if checkout_history.email == @user.email%>
-              <tr>
-                <td><%= checkout_history.email %></td>
-                <td><%= checkout_history.isbn %></td>
-                <td><%= checkout_history.checkout_timestamp %></td>
-                <td><%= checkout_history.return_timestamp %></td>
-
-              </tr>
-          <%end%>
+    <% @checkout_histories.each do |checkout_history| %>
+      <%if checkout_history.email == @user.email%>
+          <tr>
+            <td><%= checkout_history.email %></td>
+            <td><%= checkout_history.isbn %></td>
+            <td><%= checkout_history.checkout_timestamp %></td>
+            <td><%= checkout_history.return_timestamp %></td>
+            </tr>
+          <% end %>
       <% end %>
-  <%end%>
+    <% end %>
   </tbody>
 </table>
 

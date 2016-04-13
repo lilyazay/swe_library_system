@@ -43,9 +43,9 @@
         <td><%= link_to 'View', book_path(book.isbn), :class => 'btn btn-mini' %></td>
 
         <% @student = Student.find_by_id(session[:current_student_id]) %>
-        <% if book.available == true && %>
+        <% if book.available == true %>
         <td>  <%= link_to 'Checkout', book, method: :post, data: { confirm: 'Are you sure you would like to checkout this book?' }, :class => 'btn btn-mini' %></td>
-            <%end%>
+            <% end %>
         <% if book.available == false %>
             <% @checkout_history = CheckoutHistory.find_by(isbn: book.isbn) %>
             <% if !signed_in? %>
@@ -55,8 +55,8 @@
 
             <td>  <%= link_to 'Check-in', book, method: :post, data: { confirm: 'Are you sure you would like to check-in this book?'}, :class => 'btn btn-mini' %></td>
                
-            <%end%>
-            <%end%>
+            <% end %>
+            <% end %>
 
 
     <% end %>

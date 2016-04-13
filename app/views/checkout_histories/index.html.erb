@@ -36,10 +36,10 @@
         <% end %>
         <% end %>
 
-        <%if(@student.student_type=='A' || @student.student_type=='P')%>
+        <% if(@student.student_type=='A' || @student.student_type=='P') %>
             <td><%= link_to 'Edit', edit_checkout_history_path(checkout_history) %></td>
             <td><%= link_to 'Destroy', checkout_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
+        <% end %>
 
 
       </tr>
@@ -49,7 +49,7 @@
 
 <br>
 
-<%if(@student.student_type=='A' || @student.student_type=='P')%>
+<% if(@student.student_type=='A' || @student.student_type=='P') %>
 <%= link_to 'New Checkout history', new_checkout_history_path %>
 <%end%>
 
