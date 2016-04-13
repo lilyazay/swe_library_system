@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919175706) do
+ActiveRecord::Schema.define(version: 20160413031733) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20150919175706) do
     t.string   "shelving_code"
     t.string   "publisher"
     t.string   "language"
-    t.datetime "due_date"
     t.boolean  "available"
     t.boolean  "late"
     t.datetime "created_at",    null: false
@@ -41,18 +40,19 @@ ActiveRecord::Schema.define(version: 20150919175706) do
     t.string   "email"
     t.string   "isbn"
     t.string   "checkout_timestamp"
-    t.string   "return_timestamp"
+    t.string   "due_date"
+    t.string   "returned_date"
+    t.boolean  "late"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-  create_table "library_members", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "encrypted_password"
-    t.string   "salt"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+  create_table "shelves", force: :cascade do |t|
+    t.string   "code"
+    t.integer  "capacity"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "students", force: :cascade do |t|
