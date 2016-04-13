@@ -107,7 +107,7 @@ class BooksController < ApplicationController
 
         if (@student.student_type == 'A' || @student.student_type == 'P')
 
-          @checkout_history = CheckoutHistory.new(:isbn => @book.isbn, :checkout_timestamp => DateTime.now.strftime("%m/%d/%Y"), :due_date => DateTime.now.strftime("%m/%d/%Y"), :due_date => (DateTime.now + 14).strftime("%m/%d/%Y"))
+          @checkout_history = CheckoutHistory.new(:isbn => @book.isbn, :checkout_timestamp => Date.today.to_s, :due_date => DateTime.now.strftime("%m/%d/%Y"), :due_date => (Date.today + 14.days).to_s)
           @book.save
           @checkout_history.save
 
@@ -116,7 +116,7 @@ class BooksController < ApplicationController
               format.json { render json: @book }
             end
         else
-          @checkout_history = CheckoutHistory.new(:email => @student.email, :isbn => @book.isbn, :checkout_timestamp => DateTime.now.strftime("%m/%d/%Y"), :due_date => (DateTime.now + 14).strftime("%m/%d/%Y"))
+          @checkout_history = CheckoutHistory.new(:email => @student.email, :isbn => @book.isbn, :checkout_timestamp => Date.today.to_s, :due_date => (Date.today + 14.days).to_s)
           @book.save
           @checkout_history.save
           respond_to do |format|
@@ -128,7 +128,7 @@ class BooksController < ApplicationController
         @book.available = true
         @book.save
         @checkout_history = CheckoutHistory.find_by(isbn: @book.isbn)
-        @checkout_history.returned_date = DateTime.now.strftime("%m/%d/%Y")
+        @checkout_history.returned_date = Date.today.to_s
         @checkout_history.save
         if check_if_admin
         respond_to do |format|

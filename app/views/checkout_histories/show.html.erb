@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <strong>Checkout timestamp:</strong>
+  <strong>Checkout date:</strong>
   <%= @checkout_history.checkout_timestamp %>
 </p>
 
@@ -19,6 +19,11 @@
   <strong>Due date:</strong>
   <%= @checkout_history.due_date %>
 </p>
+
+<p>
+  <strong>Returned date:</strong>
+  <% @checkout_history.returned_date %>
+<p>
 
 
 <%= link_to 'Back', admin_home_path %>

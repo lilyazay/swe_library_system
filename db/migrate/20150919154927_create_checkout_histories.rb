@@ -4,8 +4,8 @@ class CreateCheckoutHistories < ActiveRecord::Migration
       t.string :email
       t.string :isbn
       t.string :checkout_timestamp
-      t.datetime :due_date
-      t.datetime :returned_date
+      t.string :due_date
+      t.string :returned_date
       t.boolean :late
 
       t.timestamps null: false

@@ -4,7 +4,7 @@
 <%= link_to 'View/Edit My Profile', edit_student_path(session[:current_student_id]) %><br/>
 <h4>Enlighten me</h4>
 <%= link_to 'Checkout a book', books_path %><br/>
-<%= link_to 'Check-in a book', books_path %><br/>
+<%= link_to 'Check-in a book', checkout_histories_path %><br/>
 <%= link_to 'Explore Books', books_path %><br/>
 <% @student=Student.find_by_id(session[:current_student_id])%>
 <% @checkout_history = CheckoutHistory.where(@student.email)%>

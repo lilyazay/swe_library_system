@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Checkout Histories</h1>
+<h1>My Checkout Histories</h1>
+<div class="row">
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Email</th>
       <th>Isbn</th>
       <th>Title</th>
-      <th>Checkout timestamp</th>
+      <th>Checkout Date</th>
       <th>Due Date</th>
+      <th>Returned Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <% @student=Student.find_by_id(session[:current_student_id]) %>
+  <% @student = Student.find_by_id(session[:current_student_id]) %>
   <tbody>
     <% @checkout_histories.each do |checkout_history| %>
       <tr>
@@ -26,8 +28,13 @@
             <td><%= @book.title %></td>
         <td><%= checkout_history.checkout_timestamp %></td>
         <td><%= checkout_history.due_date %></td>
-        <td><%= link_to 'Show', checkout_history %></td>
-        <%end%>
+        <td><%= checkout_history.returned_date %><td>
+        <td><%= link_to 'Show', checkout_history, :class => 'btn btn-mini' %></td>
+        <% @book = Book.find_by(isbn: checkout_history.isbn) %>
+        <% if @book.available == false %>
+        <td>  <%= link_to 'Check-in', book_path(@book), method: :post, data: { confirm: 'Are you sure you would like to check-in this book?'}, :class => 'btn btn-mini' %></td>
+        <% end %>
+        <% end %>
 
         <%if(@student.student_type=='A' || @student.student_type=='P')%>
             <td><%= link_to 'Edit', edit_checkout_history_path(checkout_history) %></td>
