@@ -60,8 +60,9 @@ ActiveRecord::Schema.define(version: 20150919175706) do
     t.string   "name"
     t.string   "password"
     t.string   "student_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "checkouts",       default: 3
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "password_digest"
   end
 

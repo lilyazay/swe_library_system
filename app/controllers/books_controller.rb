@@ -101,9 +101,13 @@ class BooksController < ApplicationController
       @book = Book.find_by_id(params[:id])
       available = @book.available
 
+      if @student.checkouts == 0
+        respond_to do |format|
+          format.html { redirect_to books_url, notice: 'You have met the amount of books you can checkout at a time. Please check-in books to checkout other ones.' }
+        end
       if available == true
        @book.available = false
-
+       @student.checkouts = (@student.checkouts - 1)
 
         if (@student.student_type == 'A' || @student.student_type == 'P')
 
@@ -130,6 +134,7 @@ class BooksController < ApplicationController
         @checkout_history = CheckoutHistory.find_by(isbn: @book.isbn, return_timestamp: '9999-12-31T00:00:00+00:00')
         @checkout_history.return_timestamp = DateTime.now.utc
         @checkout_history.save
+        @student.checkouts = (@student.checkouts + 1)
         if check_if_admin
         respond_to do |format|
           format.html { redirect_to admin_home_path, notice: 'Book was successfully returned.' }
@@ -142,6 +147,7 @@ class BooksController < ApplicationController
           end
         end
       end
+    end
     end
 
   helper_method :checkout
