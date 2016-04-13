@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Student.create!(:name=>"Lily Zay", :email=>"lilya@gmail.com", :password=>"lilya", :student_type=>"P")
+Student.create!(:name=>"Lily Zaychik", :email=>"lilya@gmail.com", :password=>"lilya", :student_type=>"P")
 
 Student.create!(:name=>"Connor Wilson", :email=>"connor@gmail.com", :password=>"connor", :student_type=>"A")
 
