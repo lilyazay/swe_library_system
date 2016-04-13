@@ -8,7 +8,6 @@ class CreateBooks < ActiveRecord::Migration
       t.string :shelving_code
       t.string :publisher
       t.string :language
-      t.datetime :due_date
       t.boolean :available
       t.boolean :late
 
