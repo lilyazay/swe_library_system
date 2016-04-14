@@ -12,6 +12,7 @@
       <th>Checkout Date</th>
       <th>Due Date</th>
       <th>Returned Date</th>
+      <th>Checkouts Left<th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,6 +30,7 @@
         <td><%= checkout_history.checkout_timestamp %></td>
         <td><%= checkout_history.due_date %></td>
         <td><%= checkout_history.returned_date %><td>
+        <td><%= @student.checkouts %><td>
         <td><%= link_to 'Show', checkout_history, :class => 'btn btn-mini' %></td>
         <% @book = Book.find_by(isbn: checkout_history.isbn) %>
         <% if @book.available == false %>

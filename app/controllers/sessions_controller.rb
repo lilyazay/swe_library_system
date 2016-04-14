@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
           redirect_to student_home_path, notice: "Student logged in successfully"
 
         else
-            redirect_to admin_home_path,notice:"Admin logged in successfully"
+            redirect_to admin_home_path, notice:"Admin logged in successfully"
         end
     else
         redirect_to login_path, notice: "Email/Password is invalid"
