@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160413031733) do
 
-  create_table "admins", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.boolean  "pre_configured"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password_digest"
-  end
-
   create_table "books", force: :cascade do |t|
     t.integer  "isbn"
     t.string   "title"
