@@ -97,45 +97,51 @@ class BooksController < ApplicationController
   # CHECKOUT books
   def checkout
       @student = Student.find_by_id(session[:current_student_id])
+      checkouts = @student.checkouts
 
       @book = Book.find_by_id(params[:id])
       available = @book.available
 
-      if available == true
-       @book.available = false
+        if available == true && checkouts != 0
+          @book.available = false
+          @student.checkouts = (checkouts - 1)
+          @student.save
 
+          if (@student.student_type == 'A' || @student.student_type == 'P')
 
-        if (@student.student_type == 'A' || @student.student_type == 'P')
+            @checkout_history = CheckoutHistory.new(:isbn => @book.isbn, :checkout_timestamp => Date.today.to_s, :due_date => DateTime.now.strftime("%m/%d/%Y"), :due_date => (Date.today + 14.days).to_s)
+            @book.save
+            @checkout_history.save
 
-          @checkout_history = CheckoutHistory.new(:isbn => @book.isbn, :checkout_timestamp => Date.today.to_s, :due_date => DateTime.now.strftime("%m/%d/%Y"), :due_date => (Date.today + 14.days).to_s)
-          @book.save
-          @checkout_history.save
-
-          respond_to do |format|
+            respond_to do |format|
               format.html { render :checkout_details }
               format.json { render json: @book }
             end
-        else
-          @checkout_history = CheckoutHistory.new(:email => @student.email, :isbn => @book.isbn, :checkout_timestamp => Date.today.to_s, :due_date => (Date.today + 14.days).to_s)
-          @book.save
-          @checkout_history.save
-          respond_to do |format|
-           format.html { redirect_to student_home_path, notice: 'Book was successfully checked out.' }
-           format.json { head :no_content }
+          else
+            @checkout_history = CheckoutHistory.new(:email => @student.email, :isbn => @book.isbn, :checkout_timestamp => Date.today.to_s, :due_date => (Date.today + 14.days).to_s)
+            @book.save
+            @checkout_history.save
+            respond_to do |format|
+              format.html { redirect_to student_home_path, notice: 'Book was successfully checked out.' }
+              format.json { head :no_content }
+            end
           end
-        end
-      else
-        @book.available = true
-        @book.save
-        @checkout_history = CheckoutHistory.find_by(isbn: @book.isbn)
-        @checkout_history.returned_date = Date.today.to_s
-        @checkout_history.save
-        if check_if_admin
-        respond_to do |format|
-          format.html { redirect_to admin_home_path, notice: 'Book was successfully returned.' }
-          format.json { head :no_content }
-        end
+        elsif available == true && checkouts == 0
+          redirect_to books_path, notice: 'You have met the amount of books you can checkout at a time. Please check-in books to checkout other ones.'
         else
+          @book.available = true
+          @book.save
+          @checkout_history = CheckoutHistory.find_by(isbn: @book.isbn)
+          @checkout_history.returned_date = Date.today.to_s
+          @checkout_history.save
+          @student.checkouts = (checkouts + 1)
+          @student.save
+          if check_if_admin
+          respond_to do |format|
+            format.html { redirect_to admin_home_path, notice: 'Book was successfully returned.' }
+            format.json { head :no_content }
+          end
+          else
           respond_to do |format|
             format.html { redirect_to student_home_path, notice: 'Book was successfully returned.' }
             format.json { head :no_content }

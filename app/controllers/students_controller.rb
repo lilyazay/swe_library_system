@@ -2,6 +2,7 @@ class StudentsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   wrap_parameters :student, include: [:name, :email, :password, :password_confirmation, :student_type]
+
   # GET /students
   # GET /students.json
   def index

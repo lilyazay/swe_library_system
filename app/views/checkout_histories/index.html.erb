@@ -29,10 +29,11 @@
         <td><%= checkout_history.checkout_timestamp %></td>
         <td><%= checkout_history.due_date %></td>
         <td><%= checkout_history.returned_date %><td>
-        <td><%= link_to 'Show', checkout_history, :class => 'btn btn-mini' %></td>
         <% @book = Book.find_by(isbn: checkout_history.isbn) %>
         <% if @book.available == false %>
         <td>  <%= link_to 'Check-in', book_path(@book), method: :post, data: { confirm: 'Are you sure you would like to check-in this book?'}, :class => 'btn btn-mini' %></td>
+        <% else %>
+        <td> Checked-In </td>
         <% end %>
         <% end %>
 

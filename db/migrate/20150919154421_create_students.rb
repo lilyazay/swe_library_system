@@ -5,6 +5,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :name
       t.string :password
       t.string :student_type
+      t.integer :checkouts, default: 3
 
       t.timestamps null: false
     end
