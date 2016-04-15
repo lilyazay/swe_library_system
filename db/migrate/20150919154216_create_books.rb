@@ -10,6 +10,8 @@ class CreateBooks < ActiveRecord::Migration
       t.string :language
       t.boolean :available
       t.boolean :late
+      t.string :cover
+      t.string :description
 
       t.timestamps null: false
     end

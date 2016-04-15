@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20160413031733) do
     t.string   "language"
     t.boolean  "available"
     t.boolean  "late"
+    t.string   "cover"
+    t.string   "description"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
