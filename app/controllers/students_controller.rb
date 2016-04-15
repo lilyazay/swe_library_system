@@ -77,9 +77,9 @@ class StudentsController < ApplicationController
           #Tell the studentMailer to send a welcome email after save
           StudentMailer.welcome_email(@student).deliver_later
           if session[:current_student_id].nil?
-            format.html { redirect_to login_path, notice: 'Student was successfully created.Login to access the system' }
+            format.html { redirect_to login_path, notice: 'Student was successfully created. Login to access the system.' }
           else
-            format.html {redirect_to :back, notice: 'Student was successfully created.Login to access the system' }
+            format.html {redirect_to :back, notice: 'Student was successfully created. Login to access the system.' }
           end
         else
           format.html { render :new }
@@ -108,15 +108,15 @@ class StudentsController < ApplicationController
     end
 
     if ['A','P'].include?(student_params[:student_type]) && check_if_student
-        redirect_to student_home_path, notice: "No sufficient permissions to edit admin"
+        redirect_to student_home_path, notice: "You do not have sufficient permission to edit admins"
     elsif  student_params[:student_type] == 'U' && check_if_admin
-        redirect_to admin_home_path, notice: "No sufficient permissions to edit students"
+        redirect_to admin_home_path, notice: "You do not have sufficient permission to edit students"
     elsif student_params[:student_type] == 'P'
       redirect_to admin_home_path, notice: "Preconfigured admin details cannot be updated"
     else
       respond_to do |format|
         if @student.update(student_params)
-          format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+          format.html { redirect_to student_home_path, notice: 'Student was successfully updated.' }
         else
           format.html { render :edit }
         end
@@ -195,7 +195,7 @@ if check_if_admin
 
 
           if !(checkout_history.return_timestamp=='9999-12-31T00:00:00+00:00')
-@student.destroy
+          @student.destroy
           respond_to do |format|
             format.html { redirect_to admin_index_path, notice: 'Student was successfully destroyed.' }
             format.json { head :no_content }

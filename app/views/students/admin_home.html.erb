@@ -1,24 +1,22 @@
 <%= provide(:title, "Welcome") %>
-<h4>My profile</h4>
-<%= link_to 'View my profile', student_path(session[:current_student_id]) %><br/>
-<%= link_to 'Edit my profile', edit_student_path(session[:current_student_id]) %><br/>
+<ul class="list-group">
+<h2>My profile</h2>
+<li class="list-group-item"><%= link_to 'View/Edit my profile', edit_student_path(session[:current_student_id]) %><br/></li>
 <br/>
-<h4>Manage Admins</h4>
-<%= link_to 'Add new Admin',   new_student_path %><br/>
-<%= link_to 'View list/See details/Delete admins', admin_index_path%><br/>
+<h2>Manage Admins</h2>
+<li class="list-group-item"><%= link_to 'Add new Admin',   new_student_path %><br/></li>
+<li class="list-group-item"><%= link_to 'View list/See details/Delete admins', admin_index_path%><br/></li>
 <br/>
-<h4>Manage Library Books</h4>
-<%= link_to 'Add new book', new_book_path %><br/>
-<%= link_to 'View list of books', books_path %><br/>
-<%= link_to 'View book details', books_path %><br/>
-<%= link_to 'Edit book details', books_path %><br/>
-<%= link_to 'View Checkout History for a book', books_path %><br/>
-<%= link_to 'Checkout/Return books', books_path %>
+<h2>Manage Library Books</h2>
+<li class="list-group-item"><%= link_to 'Add new book', new_book_path %><br/></li>
+<li class="list-group-item"><%= link_to 'View list of books', books_path %><br/></li>
+<li class="list-group-item"><%= link_to 'View book details', books_path %><br/></li>
+<li class="list-group-item"><%= link_to 'View Checkout History for Books', checkout_histories_path %><br/></li>
+<li class="list-group-item"><%= link_to 'Checkout/Check-In Books', books_path %></li>
 <br/>
-<h4>Library Members</h4>
-<%= link_to 'View Checkout history for a student', students_path %><br/>
-<%= link_to 'Delete a book', books_path %><br/>
-<%= link_to 'List all library members', students_path %><br/>
-<%= link_to 'Delete a member', students_path %><br/>
-
-
+<h2>Library Members</h2>
+<li class="list-group-item"><%= link_to 'View Checkout history for a student', students_path %><br/></li>
+<li class="list-group-item"><%= link_to 'Delete a book', books_path %><br/></li>
+<li class="list-group-item"><%= link_to 'List all library members', students_path %><br/></li>
+<li class="list-group-item"><%= link_to 'Delete a member', students_path %><br/></li>
+</ul>

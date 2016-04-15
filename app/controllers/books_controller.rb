@@ -176,7 +176,7 @@ class BooksController < ApplicationController
     def check_student
       if !signed_in?
       respond_to do |format|
-        format.html{redirect_to root_url, notice: "Please login to checkout or check-in books." }
+        format.html{ redirect_to root_url, notice: "Please login to checkout or check-in books." }
         end
       end
     end
