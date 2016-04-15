@@ -21,7 +21,7 @@
     <% @checkout_histories.each do |checkout_history| %>
       <tr>
 
-        <%if(checkout_history.email==@student.email || @student.student_type=='A' || @student.student_type=='P')%>
+        <% if(checkout_history.email == @student.email || @student.student_type=='A' || @student.student_type=='P') %>
         <td><%= checkout_history.email %></td>
         <td><%= checkout_history.isbn %></td>
             <%@book=Book.find_by_isbn(checkout_history.isbn)%>
