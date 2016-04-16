@@ -1,36 +1,36 @@
-Student.create!(:name=>"Lily Zaychik", :email=>"lilya@gmail.com", :password=>"lilya", :student_type=>"P")
+Student.create!(:name=>"Lily Zaychik", :email=>"lilya@swelibrary.com", :password=>"lilya", :student_type=>"P")
 
-Student.create!(:name=>"Connor Wilson", :email=>"connor@gmail.com", :password=>"connor", :student_type=>"P")
+Student.create!(:name=>"Connor Wilson", :email=>"connor@swelibrary.com", :password=>"connor", :student_type=>"P")
 
-Student.create!(:name=>"Brendan Woods", :email=>"brendan@gmail.com", :password=>"brendan", :student_type=>"P")
+Student.create!(:name=>"Brendan Woods", :email=>"brendan@swelibrary.com", :password=>"brendan", :student_type=>"P")
 
-Student.create!(:name=>"Joseph Wilkerson", :email=>"joseph@gmail.com", :password=>"joseph", :student_type=>"P")
+Student.create!(:name=>"Joseph Wilkerson", :email=>"joseph@swelibrary.com", :password=>"joseph", :student_type=>"P")
 
-Student.create!(:name=>"Hassan Pournaghshband", :email=>"hassan@gmail.com", :password=>"hassan", :student_type=>"P")
+Student.create!(:name=>"Hassan Pournaghshband", :email=>"hassan@swelibrary.com", :password=>"hassan", :student_type=>"P")
 
-Student.create!(:name=>"Mickey Mouse", :email=>"mickey@gmail.com", :password=>"mickey", :student_type=>"U")
+Student.create!(:name=>"Mickey Mouse", :email=>"mickey@swelibrary.com", :password=>"mickey", :student_type=>"U")
 
-Student.create!(:name=>"Minnie Mouse", :email=>"minnie@gmail.com", :password=>"mini", :student_type=>"U")
+Student.create!(:name=>"Minnie Mouse", :email=>"minnie@swelibrary.com", :password=>"minnie", :student_type=>"U")
 
-Student.create!(:name=>"Donald Duck", :email=>"donald@gmail.com", :password=>"donald", :student_type=>"U")
+Student.create!(:name=>"Donald Duck", :email=>"donald@swelibrary.com", :password=>"donald", :student_type=>"U")
 
-Student.create!(:name=>"Bilbo Baggins", :email=>"bilbo@gmail.com", :password=>"bilbo", :student_type=>"U")
+Student.create!(:name=>"Bilbo Baggins", :email=>"bilbo@swelibrary.com", :password=>"bilbo", :student_type=>"U")
 
-Student.create!(:name=>"Son Goku", :email=>"goku@gmail.com", :password=>"goku", :student_type=>"U")
+Student.create!(:name=>"Son Goku", :email=>"goku@swelibrary.com", :password=>"goku", :student_type=>"U")
 
-Student.create!(:name=>"Bruce Wane", :email=>"bruce@gmail.com", :password=>"bruce", :student_type=>"U")
+Student.create!(:name=>"Bruce Wane", :email=>"bruce@swelibrary.com", :password=>"bruce", :student_type=>"U")
 
-Student.create!(:name=>"Wade Wilson", :email=>"wade@gmail.com", :password=>"wade", :student_type=>"U")
+Student.create!(:name=>"Wade Wilson", :email=>"wade@swelibrary.com", :password=>"wade", :student_type=>"U")
 
-Student.create!(:name=>"Slade Wilson", :email=>"deathstroke@gmail.com", :password=>"slade", :student_type=>"U")
+Student.create!(:name=>"Slade Wilson", :email=>"deathstroke@swelibrary.com", :password=>"slade", :student_type=>"U")
 
-Student.create!(:name=>"Jason Todd", :email=>"jason@gmail.com", :password=>"jason", :student_type=>"U")
+Student.create!(:name=>"Jason Todd", :email=>"jason@swelibrary.com", :password=>"jason", :student_type=>"U")
 
-Student.create!(:name=>"Diana Prince", :email=>"diana@gmail.com", :password=>"diana", :student_type=>"U")
+Student.create!(:name=>"Diana Prince", :email=>"diana@swelibrary.com", :password=>"diana", :student_type=>"U")
 
-Student.create!(:name=>"Laura Kinney", :email=>"laura@gmail.com", :password=>"laura", :student_type=>"U")
+Student.create!(:name=>"Laura Kinney", :email=>"laura@swelibrary.com", :password=>"laura", :student_type=>"U")
 
-Student.create!(:name=>"Elisabeth Braddock", :email=>"elisabeth@gmail.com", :password=>"elisabeth", :student_type=>"U")
+Student.create!(:name=>"Elisabeth Braddock", :email=>"elisabeth@swelibrary.com", :password=>"elisabeth", :student_type=>"U")
 
 Shelf.create!(:code=> '567', :capacity=> 20, :location=> 'Back 2nd Row')
 
