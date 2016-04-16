@@ -17,7 +17,7 @@ Student.create!(:name=>"Hassan Pournaghshband", :email=>"hassan@gmail.com", :pas
 
 Student.create!(:name=>"Mickey Mouse", :email=>"mickey@gmail.com", :password=>"mickey", :student_type=>"U")
 
-Student.create!(:name=>"Mini Mouse", :email=>"mini@gmail.com", :password=>"mini", :student_type=>"U")
+Student.create!(:name=>"Minnie Mouse", :email=>"minnie@gmail.com", :password=>"mini", :student_type=>"U")
 
 Student.create!(:name=>"Donald Duck", :email=>"donald@gmail.com", :password=>"donald", :student_type=>"U")
 
@@ -276,7 +276,7 @@ Book.find_or_create_by!(isbn: '014240733X') do |c|
   c.shelving_code = '123B'
   c.publisher = 'Speak; Platinum ed. edition'
   c.language = 'English'
-  c.description = "No one ever said life was easy. But Ponyboy is pretty sure that he's got things figured out. He knows that he can count on his brothers, Darry and Sodapop. And he knows that he can count on his friends—true friends who would do anything for him, like Johnny and Two-Bit. And when it comes to the Socs—a vicious gang of rich kids who enjoy beating up on "greasers" like him and his friends—he knows that he can count on them for trouble. But one night someone takes things too far, and Ponyboy's world is turned upside down.."
+  c.description = "No one ever said life was easy. But Ponyboy is pretty sure that he's got things figured out. He knows that he can count on his brothers, Darry and Sodapop. And he knows that he can count on his friends—true friends who would do anything for him, like Johnny and Two-Bit. And when it comes to the Socs—a vicious gang of rich kids who enjoy beating up on 'greasers' like him and his friends—he knows that he can count on them for trouble. But one night someone takes things too far, and Ponyboy's world is turned upside down."
   c.available = true
   c.late = false
 end
@@ -288,7 +288,7 @@ Book.find_or_create_by!(isbn: '0142406112') do |c|
   c.shelving_code = '123H'
   c.publisher = 'Puffin Books'
   c.language = 'English'
-  c.description = "Ten years ago, Anthony Horowitz introduced the world to Alex Rider . . . and now his debut mission is back in a special fully loaded anniversary edition! Packed with bonus material - including a brand new Alex Rider short story, a letter from Anthony Horowitz, and much more!"
+  c.description = 'Ten years ago, Anthony Horowitz introduced the world to Alex Rider . . . and now his debut mission is back in a special fully loaded anniversary edition! Packed with bonus material - including a brand new Alex Rider short story, a letter from Anthony Horowitz, and much more!'
   c.available = true
   c.late = false
 end
