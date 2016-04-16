@@ -31,9 +31,9 @@
         <td><%= checkout_history.returned_date %><td>
         <% @book = Book.find_by(isbn: checkout_history.isbn) %>
         <% if @book.available == false %>
-        <td>  <%= link_to 'Check-in', book_path(@book), method: :post, data: { confirm: 'Are you sure you would like to check-in this book?'}, :class => 'btn btn-mini' %></td>
+        <td>  <%= link_to 'Return', book_path(@book), method: :post, data: { confirm: 'Are you sure you would like to return this book?'}, :class => 'btn btn-mini' %></td>
         <% else %>
-        <td> Checked-In </td>
+        <td> Returned </td>
         <% end %>
         <% end %>
 

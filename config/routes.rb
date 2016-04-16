@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get    'admin_home' => 'students#admin_home'
   get    'student_home'  => 'students#student_home'
   get    'admin_index' => 'students#admin_index'
+  get    'book_filters' => 'books#filters'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   get    'logout'  => 'sessions#destroy'
