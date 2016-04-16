@@ -1,0 +1,17 @@
+<div class="col">
+
+  <%= form_for(@shelf) do |f| %>
+
+    <%= f.label :code %>
+    <%= f.text_field :code, class: 'form-control' %>
+
+    <%= f.label :capacity %>
+    <%= f.text_field :capacity, class: 'form-control' %>
+
+    <%= f.label :location %>
+    <%= f.text_field :location, class: 'form-control' %>
+    <hr />
+
+    <%= link_to 'Back', root_path, class: 'btn btn-default'%>
+    </div>
+  <% end %>

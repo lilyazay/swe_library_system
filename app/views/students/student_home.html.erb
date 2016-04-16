@@ -3,11 +3,12 @@
 <ul class="list-group">
 <h2>My Profile</h2>
 <li class="list-group-item"><%= link_to 'View/Edit My Profile', edit_student_path(session[:current_student_id]) %><br/></li>
-<h2>Enlighten me</h2>
+<h2>Explore Library</h2>
 <li class="list-group-item"><%= link_to 'Checkout a book', books_path %><br/></li>
 <li class="list-group-item"><%= link_to 'Return a book', checkout_histories_path %><br/></li>
 <li class="list-group-item"><%= link_to 'Explore Books', books_path %><br/></li>
 <% @student = Student.find_by_id(session[:current_student_id]) %>
 <% @checkout_history = CheckoutHistory.where(@student.email) %>
 <li class="list-group-item"><%= link_to 'View my checkout history', checkout_histories_path %></li>
+<li class="list-group-item"><%= link_to 'Find Shelf', shelves_path %><br/></li>
 </ul>

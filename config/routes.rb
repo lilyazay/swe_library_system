@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
 
   post '/books/:id' => 'books#checkout'
+  resources :shelves
 
 
   #root 'application#index'

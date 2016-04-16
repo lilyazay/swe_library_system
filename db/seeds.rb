@@ -1,36 +1,46 @@
-Student.create!(:name=>"Lily Zaychik", :email=>"lilya@gmail.com", :password=>"lilya", :student_type=>"P")
+Student.create!(:name=>"Lily Zaychik", :email=>"lilya@swelibrary.com", :password=>"lilya", :student_type=>"P")
 
-Student.create!(:name=>"Connor Wilson", :email=>"connor@gmail.com", :password=>"connor", :student_type=>"P")
+Student.create!(:name=>"Connor Wilson", :email=>"connor@swelibrary.com", :password=>"connor", :student_type=>"P")
 
-Student.create!(:name=>"Brendan Woods", :email=>"brendan@gmail.com", :password=>"brendan", :student_type=>"P")
+Student.create!(:name=>"Brendan Woods", :email=>"brendan@swelibrary.com", :password=>"brendan", :student_type=>"P")
 
-Student.create!(:name=>"Joseph Wilkerson", :email=>"joseph@gmail.com", :password=>"joseph", :student_type=>"P")
+Student.create!(:name=>"Joseph Wilkerson", :email=>"joseph@swelibrary.com", :password=>"joseph", :student_type=>"P")
 
-Student.create!(:name=>"Hassan Pournaghshband", :email=>"hassan@gmail.com", :password=>"hassan", :student_type=>"P")
+Student.create!(:name=>"Hassan Pournaghshband", :email=>"hassan@swelibrary.com", :password=>"hassan", :student_type=>"P")
 
-Student.create!(:name=>"Mickey Mouse", :email=>"mickey@gmail.com", :password=>"mickey", :student_type=>"U")
+Student.create!(:name=>"Mickey Mouse", :email=>"mickey@swelibrary.com", :password=>"mickey", :student_type=>"U")
 
-Student.create!(:name=>"Minnie Mouse", :email=>"minnie@gmail.com", :password=>"mini", :student_type=>"U")
+Student.create!(:name=>"Minnie Mouse", :email=>"minnie@swelibrary.com", :password=>"minnie", :student_type=>"U")
 
-Student.create!(:name=>"Donald Duck", :email=>"donald@gmail.com", :password=>"donald", :student_type=>"U")
+Student.create!(:name=>"Donald Duck", :email=>"donald@swelibrary.com", :password=>"donald", :student_type=>"U")
 
-Student.create!(:name=>"Bilbo Baggins", :email=>"bilbo@gmail.com", :password=>"bilbo", :student_type=>"U")
+Student.create!(:name=>"Bilbo Baggins", :email=>"bilbo@swelibrary.com", :password=>"bilbo", :student_type=>"U")
 
-Student.create!(:name=>"Son Goku", :email=>"goku@gmail.com", :password=>"goku", :student_type=>"U")
+Student.create!(:name=>"Son Goku", :email=>"goku@swelibrary.com", :password=>"goku", :student_type=>"U")
 
-Student.create!(:name=>"Bruce Wane", :email=>"bruce@gmail.com", :password=>"bruce", :student_type=>"U")
+Student.create!(:name=>"Bruce Wane", :email=>"bruce@swelibrary.com", :password=>"bruce", :student_type=>"U")
 
-Student.create!(:name=>"Wade Wilson", :email=>"wade@gmail.com", :password=>"wade", :student_type=>"U")
+Student.create!(:name=>"Wade Wilson", :email=>"wade@swelibrary.com", :password=>"wade", :student_type=>"U")
 
-Student.create!(:name=>"Slade Wilson", :email=>"deathstroke@gmail.com", :password=>"slade", :student_type=>"U")
+Student.create!(:name=>"Slade Wilson", :email=>"deathstroke@swelibrary.com", :password=>"slade", :student_type=>"U")
 
-Student.create!(:name=>"Jason Todd", :email=>"jason@gmail.com", :password=>"jason", :student_type=>"U")
+Student.create!(:name=>"Jason Todd", :email=>"jason@swelibrary.com", :password=>"jason", :student_type=>"U")
 
-Student.create!(:name=>"Diana Prince", :email=>"diana@gmail.com", :password=>"diana", :student_type=>"U")
+Student.create!(:name=>"Diana Prince", :email=>"diana@swelibrary.com", :password=>"diana", :student_type=>"U")
 
-Student.create!(:name=>"Laura Kinney", :email=>"laura@gmail.com", :password=>"laura", :student_type=>"U")
+Student.create!(:name=>"Laura Kinney", :email=>"laura@swelibrary.com", :password=>"laura", :student_type=>"U")
 
-Student.create!(:name=>"Elisabeth Braddock", :email=>"elisabeth@gmail.com", :password=>"elisabeth", :student_type=>"U")
+Student.create!(:name=>"Elisabeth Braddock", :email=>"elisabeth@swelibrary.com", :password=>"elisabeth", :student_type=>"U")
+
+Shelf.create!(:code=> '567', :capacity=> 20, :location=> 'Back 2nd Row')
+
+Shelf.create!(:code=> '123', :capacity=> 20, :location=> 'Front 2nd Row')
+
+Shelf.create!(:code=> '150', :capacity=> 20, :location=> 'Front 4th Row')
+
+Shelf.create!(:code=> '140', :capacity=> 20, :location=> 'Front 3rd Row')
+
+Shelf.create!(:code=> '100', :capacity=> 20, :location=> 'Front 1st Row')
 
 Book.find_or_create_by!(isbn: '1451635621') do |c|
   c.title = 'Gone with the Wind'
@@ -114,7 +124,7 @@ Book.find_or_create_by!(isbn: '0553296981') do |c|
   c.language = 'English'
   c.available = true
   c.late = false
-  c.description = "Discovered in the attic in which she spent the last years of her life, Anne Frank's remarkable diary has since become a world classic—a powerful reminder of the horrors of war and an eloquent testament to the human spirit. In 1942, with Nazis occupying Holland, a thirteen-year-old Jewish girl and her family fled their home in Amsterdam and went into hiding. For the next two years, until their whereabouts were betrayed to the Gestapo, they and another family lived cloistered in the "Secret Annex" of an old office building. Cut off from the outside world, they faced hunger, boredom, the constant cruelties of living in confined quarters, and the ever-present threat of discovery and death. In her diary Anne Frank recorded vivid impressions of her experiences during this period. By turns thoughtful, moving, and amusing, her account offers a fascinating commentary on human courage and frailty and a compelling self-portrait of a sensitive and spirited young woman whose promise was tragically cut short."
+  c.description = "Discovered in the attic in which she spent the last years of her life, Anne Frank's remarkable diary has since become a world classic—a powerful reminder of the horrors of war and an eloquent testament to the human spirit. In 1942, with Nazis occupying Holland, a thirteen-year-old Jewish girl and her family fled their home in Amsterdam and went into hiding. For the next two years, until their whereabouts were betrayed to the Gestapo, they and another family lived cloistered in the 'Secret Annex' of an old office building. Cut off from the outside world, they faced hunger, boredom, the constant cruelties of living in confined quarters, and the ever-present threat of discovery and death. In her diary Anne Frank recorded vivid impressions of her experiences during this period. By turns thoughtful, moving, and amusing, her account offers a fascinating commentary on human courage and frailty and a compelling self-portrait of a sensitive and spirited young woman whose promise was tragically cut short."
 end
 
 Book.find_or_create_by!(isbn: '0062378082') do |c|
@@ -164,7 +174,7 @@ Book.find_or_create_by!(isbn: '0425232204') do |c|
   c.language = 'English'
   c.available = true
   c.late = false
-  c.description = 'Aibileen is a black maid in 1962 Jackson, Mississippi, who's always taken orders quietly, but lately she's unable to hold her bitterness back. Her friend Minny has never held her tongue but now must somehow keep secrets about her employer that leave her speechless. White socialite Skeeter just graduated college. She's full of ambition, but without a husband, she's considered a failure. Together, these seemingly different women join together to write a tell-all book about work as a black maid in the South, that could forever alter their destinies and the life of a small town...'
+  c.description = "Aibileen is a black maid in 1962 Jackson, Mississippi, who's always taken orders quietly, but lately she's unable to hold her bitterness back. Her friend Minny has never held her tongue but now must somehow keep secrets about her employer that leave her speechless. White socialite Skeeter just graduated college. She's full of ambition, but without a husband, she's considered a failure. Together, these seemingly different women join together to write a tell-all book about work as a black maid in the South, that could forever alter their destinies and the life of a small town..."
 end
 
 Book.find_or_create_by!(isbn: '0743273567') do |c|
@@ -300,7 +310,7 @@ Book.find_or_create_by!(isbn: '0142406112') do |c|
 end
 
 Book.find_or_create_by!(isbn: '0307474720') do |c|
-  c.title = 'Cien años de soledad (One Hundred Year of Solitude')
+  c.title = 'Cien años de soledad (One Hundred Year of Solitude)'
   c.author = 'Gabriel García Márquez'
   c.genre = 'Fiction'
   c.shelving_code = '123H'

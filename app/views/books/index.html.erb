@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <!-- <div class="text-center">
   <h1>Explore Library</h1>
 </div> -->
@@ -116,11 +114,11 @@
         <td><%= book.shelving_code %></td>
         <td><%= book.publisher %></td>
         <td><%= book.language %></td>
-        <td><%= link_to 'View', book_path(book.isbn), :class => 'btn btn-mini' %></td>
+        <td><%= link_to 'View', book_path(book.isbn), :class => 'btn btn-default' %></td>
 
         <% @student = Student.find_by_id(session[:current_student_id]) %>
         <% if book.available == true %>
-        <td>  <%= link_to 'Checkout', book, method: :post, data: { confirm: 'Are you sure you would like to checkout this book?' }, :class => 'btn btn-mini' %></td>
+        <td>  <%= link_to 'Checkout', book, method: :post, data: { confirm: 'Are you sure you would like to checkout this book?' }, :class => 'btn btn-primary' %></td>
             <% end %>
         <% if book.available == false %>
             <% @checkout_history = CheckoutHistory.find_by(isbn: book.isbn) %>
@@ -129,7 +127,7 @@
              
                     <% elsif (@checkout_history.email == @student.email || @student.student_type=='P' || @student.student_type=='A') %>
 
-            <td>  <%= link_to 'Return', book, method: :post, data: { confirm: 'Are you sure you would like to check-in this book?'}, :class => 'btn btn-mini' %></td>
+            <td>  <%= link_to 'Return', book, method: :post, data: { confirm: 'Are you sure you would like to check-in this book?'}, :class => 'btn btn-primary' %></td>
                
             <% end %>
             <% end %>
