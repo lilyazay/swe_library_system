@@ -114,7 +114,7 @@ Book.find_or_create_by!(isbn: '0553296981') do |c|
   c.language = 'English'
   c.available = true
   c.late = false
-  c.description = "Discovered in the attic in which she spent the last years of her life, Anne Frank's remarkable diary has since become a world classic—a powerful reminder of the horrors of war and an eloquent testament to the human spirit. In 1942, with Nazis occupying Holland, a thirteen-year-old Jewish girl and her family fled their home in Amsterdam and went into hiding. For the next two years, until their whereabouts were betrayed to the Gestapo, they and another family lived cloistered in the "Secret Annex" of an old office building. Cut off from the outside world, they faced hunger, boredom, the constant cruelties of living in confined quarters, and the ever-present threat of discovery and death. In her diary Anne Frank recorded vivid impressions of her experiences during this period. By turns thoughtful, moving, and amusing, her account offers a fascinating commentary on human courage and frailty and a compelling self-portrait of a sensitive and spirited young woman whose promise was tragically cut short."
+  c.description = "Discovered in the attic in which she spent the last years of her life, Anne Frank's remarkable diary has since become a world classic—a powerful reminder of the horrors of war and an eloquent testament to the human spirit. In 1942, with Nazis occupying Holland, a thirteen-year-old Jewish girl and her family fled their home in Amsterdam and went into hiding. For the next two years, until their whereabouts were betrayed to the Gestapo, they and another family lived cloistered in the 'Secret Annex' of an old office building. Cut off from the outside world, they faced hunger, boredom, the constant cruelties of living in confined quarters, and the ever-present threat of discovery and death. In her diary Anne Frank recorded vivid impressions of her experiences during this period. By turns thoughtful, moving, and amusing, her account offers a fascinating commentary on human courage and frailty and a compelling self-portrait of a sensitive and spirited young woman whose promise was tragically cut short."
 end
 
 Book.find_or_create_by!(isbn: '0062378082') do |c|
@@ -164,7 +164,7 @@ Book.find_or_create_by!(isbn: '0425232204') do |c|
   c.language = 'English'
   c.available = true
   c.late = false
-  c.description = 'Aibileen is a black maid in 1962 Jackson, Mississippi, who's always taken orders quietly, but lately she's unable to hold her bitterness back. Her friend Minny has never held her tongue but now must somehow keep secrets about her employer that leave her speechless. White socialite Skeeter just graduated college. She's full of ambition, but without a husband, she's considered a failure. Together, these seemingly different women join together to write a tell-all book about work as a black maid in the South, that could forever alter their destinies and the life of a small town...'
+  c.description = "Aibileen is a black maid in 1962 Jackson, Mississippi, who's always taken orders quietly, but lately she's unable to hold her bitterness back. Her friend Minny has never held her tongue but now must somehow keep secrets about her employer that leave her speechless. White socialite Skeeter just graduated college. She's full of ambition, but without a husband, she's considered a failure. Together, these seemingly different women join together to write a tell-all book about work as a black maid in the South, that could forever alter their destinies and the life of a small town..."
 end
 
 Book.find_or_create_by!(isbn: '0743273567') do |c|
@@ -300,7 +300,7 @@ Book.find_or_create_by!(isbn: '0142406112') do |c|
 end
 
 Book.find_or_create_by!(isbn: '0307474720') do |c|
-  c.title = 'Cien años de soledad (One Hundred Year of Solitude')
+  c.title = 'Cien años de soledad (One Hundred Year of Solitude)'
   c.author = 'Gabriel García Márquez'
   c.genre = 'Fiction'
   c.shelving_code = '123H'
