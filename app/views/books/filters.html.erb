@@ -60,7 +60,7 @@
              
                     <% elsif (@checkout_history.email == @student.email || @student.student_type=='P' || @student.student_type=='A') %>
 
-            <td>  <%= link_to 'Return', book, method: :post, data: { confirm: 'Are you sure you would like to check-in this book?'}, :class => 'btn btn-primary' %></td>
+            <td>  <%= link_to 'Return', book, method: :post, data: { confirm: 'Are you sure you would like to return this book?'}, :class => 'btn btn-primary' %></td>
                
             <% end %>
             <% end %>
