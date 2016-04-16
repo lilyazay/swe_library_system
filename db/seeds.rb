@@ -32,6 +32,16 @@ Student.create!(:name=>"Laura Kinney", :email=>"laura@gmail.com", :password=>"la
 
 Student.create!(:name=>"Elisabeth Braddock", :email=>"elisabeth@gmail.com", :password=>"elisabeth", :student_type=>"U")
 
+Shelf.create!(:code=> '567', :capacity=> 20, :location=> 'Back 2nd Row')
+
+Shelf.create!(:code=> '123', :capacity=> 20, :location=> 'Front 2nd Row')
+
+Shelf.create!(:code=> '150', :capacity=> 20, :location=> 'Front 4th Row')
+
+Shelf.create!(:code=> '140', :capacity=> 20, :location=> 'Front 3rd Row')
+
+Shelf.create!(:code=> '100', :capacity=> 20, :location=> 'Front 1st Row')
+
 Book.find_or_create_by!(isbn: '1451635621') do |c|
   c.title = 'Gone with the Wind'
   c.author = 'Margaret Mitchell'
