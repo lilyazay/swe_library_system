@@ -127,7 +127,7 @@ class BooksController < ApplicationController
             end
           end
         elsif available == true && checkouts == 0
-          redirect_to books_path, notice: 'You have met the amount of books you can checkout at a time. Please check-in books to checkout other ones.'
+          redirect_to books_path, notice: 'You have met the amount of books you can checkout at a time. Please return books to checkout other ones.'
         else
           @book.available = true
           @book.save
@@ -156,8 +156,13 @@ class BooksController < ApplicationController
 
   end
 
-  def history
+  def filters
+    @books = Book.filter(params[:filter]).order('title ASC')
+  end
 
+  helper_method :filter
+
+  def history
     @book = Book.find(params[:id])
   end
 
@@ -171,7 +176,6 @@ class BooksController < ApplicationController
     def book_params
       params.permit(:isbn, :title, :description, :author, :status)
     end
-
 
     def check_student
       if !signed_in?
