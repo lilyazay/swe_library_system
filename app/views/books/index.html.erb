@@ -122,7 +122,7 @@
             <% end %>
         <% if book.available == false %>
             <% @checkout_history = CheckoutHistory.find_by(isbn: book.isbn) %>
-            <% if !signed_in? %>
+            <% if !signed_in? || @checkout_history.email != @student.email %>
             <td> Not Available </td>
              
                     <% elsif (@checkout_history.email == @student.email || @student.student_type=='P' || @student.student_type=='A') %>
